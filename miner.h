@@ -154,6 +154,18 @@ void sha256_transform_8way(uint32_t *state, const uint32_t *block, int swap);
 extern int scanhash_sha256d(int thr_id, uint32_t *pdata,
 	const uint32_t *ptarget, uint32_t max_nonce, unsigned long *hashes_done);
 
+extern int scanhash_sha256d_plain(int thr_id, uint32_t *pdata,
+	const uint32_t *ptarget, uint32_t max_nonce, unsigned long *hashes_done);
+
+extern int scanhash_tagged_sha256d(int thr_id, uint32_t *pdata,
+	const uint32_t *ptarget, uint32_t max_nonce, unsigned long *hashes_done);
+
+extern int scanhash_tagged_sha256d_plain(int thr_id, uint32_t *pdata,
+	const uint32_t *ptarget, uint32_t max_nonce, unsigned long *hashes_done);
+
+extern int scanhash_tagged_sha256d_opt(int thr_id, uint32_t *pdata,
+	const uint32_t *ptarget, uint32_t max_nonce, unsigned long *hashes_done);
+
 extern unsigned char *scrypt_buffer_alloc(int N);
 extern int scanhash_scrypt(int thr_id, uint32_t *pdata,
 	unsigned char *scratchbuf, const uint32_t *ptarget,
@@ -204,6 +216,7 @@ extern int varint_encode(unsigned char *p, uint64_t n);
 extern size_t address_to_script(unsigned char *out, size_t outsz, const char *addr);
 extern int timeval_subtract(struct timeval *result, struct timeval *x,
 	struct timeval *y);
+extern void dumpstate(const uint32_t *state, const uint32_t *pdata);
 extern bool fulltest(const uint32_t *hash, const uint32_t *target);
 extern void diff_to_target(uint32_t *target, double diff);
 
